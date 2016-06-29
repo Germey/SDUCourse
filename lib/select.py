@@ -9,7 +9,9 @@ import config
 from time import sleep
 from tool import getCurrentTime as time
 from pyquery import PyQuery as pq
-
+import sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 config.SELECTED = False
 
 

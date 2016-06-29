@@ -8,7 +8,8 @@ from select import loop, thread
 from tool import getCurrentTime as time
 import config
 import sys
-
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 def quit(signum, frame):
     print u'程序中止'
     sys.exit()

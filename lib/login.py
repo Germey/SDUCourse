@@ -6,6 +6,10 @@ __author__ = 'CQC'
 import config
 from pyquery import PyQuery as pq
 from tool import getCurrentTime as time
+import sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
+
 login_data = {
     'stuid': config.USERNAME,
     'pwd': config.PASSWORD,

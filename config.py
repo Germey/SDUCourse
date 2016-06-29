@@ -2,7 +2,9 @@
 __author__ = 'CQC'
 
 import requests
-
+import sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 #
 # --------------------------------------------------------------------------
 # 开发配置项
@@ -55,7 +57,7 @@ SELECT_COUNT = 1
 
 USERNAME = '201300130043'
 
-PASSWORD = ''
+PASSWORD = '950830'
 
 COURSE = [
     {
