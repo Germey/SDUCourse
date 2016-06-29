@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
+__author__ = 'CQC'
+
 from lxml.etree import XMLSyntaxError
 from requests import RequestException
-from lib.login import login, reLogin
-import random
-__author__ = 'CQC'
+from lib.login import reLogin
 import threading
 import config
 from time import sleep

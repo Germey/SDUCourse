@@ -44,12 +44,13 @@ SELECT_COUNT = 1
 # THREAD_NUMBER: 刷课线程数
 # MAX_LOGIN_TIME: 登录失败重试次数
 # TIMEOUT: 连接超时时间
+# SELECT_COUNT: 选课尝试次数
 # --------------------------------------------------------------------------
 #
 
 USERNAME = '201300130043'
 
-PASSWORD = '950830'
+PASSWORD = ''
 
 KCH = '0133303210'
 
