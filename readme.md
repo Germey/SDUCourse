@@ -42,6 +42,14 @@ USERNAME 学号，PASSWORD 选课密码，KCH 课程号，KXH 课序号
 
 python index.py
 
+### 中止程序
+
+由于启用多线程，所以Ctrl＋C可能无法彻底关闭
+
+#### Windows
+
+可在资源
+
 ### 更多配置
 
 #### 线程数目

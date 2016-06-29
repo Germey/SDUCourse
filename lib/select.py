@@ -65,5 +65,3 @@ def thread():
 
     for t in threads:
         t.join()
-
-    print time(), u'程序执行完毕, 感谢您使用山东大学刷课系统'
