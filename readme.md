@@ -18,9 +18,56 @@ Python 2.7
 
 下载 https://www.python.org/
 
-#### 2.安装类库
+版本 2.7
 
-`pip install requests pyquery`
+#### 2. 安装类库
 
-#### 3.下载代码
+```
+pip install requests pyquery
+```
 
+#### 3. 下载代码
+
+````
+git clone https://github.com/Germey/SDUCourse.git
+````
+
+#### 4. 配置信息
+
+文本编辑器打开 config.py 进行相应配置
+
+USERNAME 学号，PASSWORD 选课密码，KCH 课程号，KXH 课序号
+
+#### 5. 开始刷课
+
+python index.py
+
+### 更多配置
+
+#### 线程数目
+
+```
+THREAD_NUMBER  #默认为3
+```
+
+#### 登录失败重试次数
+
+```
+MAX_LOGIN_TIME #默认为3
+```
+
+#### 超时时间
+
+```
+TIMEOUT #默认30秒
+```
+
+### 关于作者
+
+作者崔庆才，山东大学12级，计算机科学与技术学院
+
+个人主页 http://cuiqingcai.com
+
+### 完善项目
+
+如有建议或意见，请在ISSUES中留言，或者尽情PULL REQUESTS，非常感谢。
