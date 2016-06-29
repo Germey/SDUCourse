@@ -57,7 +57,9 @@ COURSE = [
 
 #### 5. 开始刷课
 
+```
 python index.py
+```
 
 ### 中止程序
 
