@@ -11,4 +11,3 @@ def main():
     login_result = login()
     login_result or reLogin() or exit()
     thread()
-    #loop()

@@ -14,7 +14,7 @@ login_data = {
 def login():
     try:
         print time(), u'正在尝试登录选课系统，请稍候...'
-        res = config.SESSION.post(config.LOGIN_URL, login_data)
+        res = config.SESSION.post(config.LOGIN_URL, login_data, timeout=config.TIMEOUT)
 
         status = res.status_code
 
