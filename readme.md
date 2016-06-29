@@ -44,11 +44,7 @@ python index.py
 
 ### 中止程序
 
-由于启用多线程，所以Ctrl＋C可能无法彻底关闭
-
-#### Windows
-
-可在资源
+按 Ctrl＋C 或者 Ctrl+Z 中止程序
 
 ### 更多配置
 
