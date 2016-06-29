@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+from lxml.etree import XMLSyntaxError
+from requests import RequestException
+from lib.login import login, reLogin
 
 __author__ = 'CQC'
 import threading
@@ -24,14 +27,23 @@ def selected(result):
 
 def select():
     print time(), u'正在尝试选此门课程，请稍候...'
-    res = config.SESSION.post(config.SELECT_URL, course_data)
-    html = res.text
-    doc = pq(html)
-    result = doc('span.t').text()
-    print time(), result
-    if selected(result):
-        config.SELECTED = True
-        print time(), u'恭喜你已经选中该门课程'
+    try:
+        res = config.SESSION.post(config.SELECT_URL, course_data)
+        html = res.text
+        if not html.strip():
+            print time(), u'用户登录会话无效，正在重新登录...'
+            reLogin() or exit()
+        doc = pq(html)
+        result = doc('span.t').text()
+        print time(), result
+        if selected(result):
+            config.SELECTED = True
+            print time(), u'恭喜你已经选中该门课程'
+    except RequestException:
+        print time(), u'网页请求失败，继续重试'
+    except XMLSyntaxError:
+        print time(), u'继续刷课...'
+
 
 
 def loop():
