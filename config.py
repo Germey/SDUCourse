@@ -13,12 +13,17 @@ import requests
 # LOGIN_URL: 登录链接
 # SELECT_URL: 刷课链接
 # SELECTED: 是否选中标志
+# NEED_LOGIN_FLAG: 需要登录判断标志
 # --------------------------------------------------------------------------
 #
 
 SELECTED_FLAG = [
     u'曾经学习过',
     u'已经选'
+]
+
+NEED_LOGIN_FLAG = [
+    u'请先登录再使用'
 ]
 
 SESSION = requests.session()
@@ -52,9 +57,16 @@ USERNAME = '201300130043'
 
 PASSWORD = ''
 
-KCH = '0133303210'
-
-KXH = '100'
+COURSE = [
+    {
+        'KCH': '0133303210',
+        'KXH': '100',
+    },
+    # {
+    #     'KCH': 'sd01331370',
+    #     'KXH': '100',
+    # }
+]
 
 THREAD_NUMBER = 3
 

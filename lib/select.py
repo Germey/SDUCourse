@@ -10,12 +10,14 @@ from time import sleep
 from tool import getCurrentTime as time
 from pyquery import PyQuery as pq
 
-course_data = {
-    'p_qxrxk': config.KCH,
-    'p_qxrxk_kxh': config.KXH
-}
-
 config.SELECTED = False
+
+
+def needLogin(result):
+    for flag in config.NEED_LOGIN_FLAG:
+        if flag in result:
+            return True
+    return False
 
 
 def selected(result):
@@ -26,24 +28,34 @@ def selected(result):
 
 
 def select():
-    print time(), u'正在尝试选此门课程，第', config.SELECT_COUNT, u'次尝试，请稍候...'
-    config.SELECT_COUNT += 1
     try:
-        res = config.SESSION.post(config.SELECT_URL, course_data, timeout=config.TIMEOUT)
-        html = res.text
-        if not html.strip():
-            print time(), u'用户登录会话无效，正在重新登录...'
-            reLogin() or exit()
-        doc = pq(html)
-        result = doc('span.t').text()
-        print time(), result
-        if selected(result):
-            config.SELECTED = True
-            print time(), u'恭喜你已经选中该门课程'
-    except RequestException:
-        print time(), u'网页请求失败，继续重试'
-    except XMLSyntaxError:
-        print time(), u'继续刷课...'
+        for course in config.COURSE:
+            course = dict(course)
+            course_data = {
+                'p_qxrxk': course.get('KCH'),
+                'p_qxrxk_kxh': course.get('KXH')
+            }
+            print time(), u'正在尝试选', course.get('KCH'), u'课程，第', config.SELECT_COUNT, u'次选课尝试，请稍候...'
+            config.SELECT_COUNT += 1
+            try:
+                res = config.SESSION.post(config.SELECT_URL, course_data, timeout=config.TIMEOUT)
+                html = res.text
+                if not html.strip() or needLogin(html):
+                    print time(), u'用户登录会话无效，正在重新登录...'
+                    reLogin() or exit()
+                doc = pq(html)
+                result = doc('span.t').text()
+                print time(), result
+                if selected(result):
+                    config.SELECTED = True
+                    print time(), u'恭喜你已经选中该门课程'
+            except RequestException:
+                print time(), u'网页请求失败，继续重试'
+            except XMLSyntaxError:
+                print time(), u'继续刷课...'
+    except AttributeError:
+        print u'课程号课序号错误，请检查'
+        exit()
 
 
 def loop():

@@ -38,6 +38,23 @@ git clone https://github.com/Germey/SDUCourse.git
 
 USERNAME 学号，PASSWORD 选课密码，KCH 课程号，KXH 课序号
 
+其中课程号和课序号可添加多个，例如
+
+```python
+COURSE = [
+    {
+        'KCH': '0133303210',
+        'KXH': '100',
+    },
+    {
+        'KCH': 'sd01331370',
+        'KXH': '100',
+    }
+]
+```
+
+添加的时候按照此格式添加即可，每个大括号是一个。
+
 #### 5. 开始刷课
 
 python index.py

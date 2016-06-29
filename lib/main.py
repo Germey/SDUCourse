@@ -17,7 +17,7 @@ def quit(signum, frame):
 def main():
     signal.signal(signal.SIGINT, quit)
     signal.signal(signal.SIGTERM, quit)
-    print time(), u'欢迎使用山东大学刷课系统，您要刷课的课程号为', config.KCH, u'课序号为', config.KXH
+    print time(), u'欢迎使用山东大学刷课系统'
     login_result = login()
     login_result or reLogin() or exit()
     thread()
