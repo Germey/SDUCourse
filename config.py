@@ -55,13 +55,13 @@ SELECT_COUNT = 1
 # --------------------------------------------------------------------------
 #
 
-USERNAME = '201300130043'
+USERNAME = 'xxxxxx'
 
-PASSWORD = '950830'
+PASSWORD = 'xxxxx'
 
 COURSE = [
     {
-        'KCH': '0133303210',
+        'KCH': 'xxxxxxxxx',
         'KXH': '100',
     },
     # {
